@@ -45,11 +45,11 @@ form {
       font-size: 18px;
     }
 
-    input[type=text], input[type=number], input[type=email], input[type=password] {
+    input {
       display: block;
       float: left;
       padding: 0 10px;
-      width: 200px;
+      width: 220px;
       height: 30px;
       border: 1px solid $warm-grey;
       border-radius: 3px;
@@ -80,15 +80,29 @@ form {
     > .members {
       overflow: hidden;
 
+      @media #{$media-mobile} {
+        clear: both;
+      }
+
       input[type=checkbox] {
-        float: left;
-        margin: 13px 8px;
+        margin: 8px 3px 0;
+        padding: 0;
+        width: 24px;
+        height: 24px;
+
+        @media #{$media-mobile} {
+          width: 20px;
+        }
       }
 
       > label {
         width: 100px;
         margin: 5px 0;
         font-size: 16px;
+        @media #{$media-mobile} {
+          width: 83px;
+          font-size: 13px;
+        }
       }
     }
   }
