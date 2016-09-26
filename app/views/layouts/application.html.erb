@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0"/>
+
+    <title>AllTheGoods</title>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= yield(:js_css) %>
+    <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class="nav">
+    <%= link_to '', root_path, class: 'logo' %>
+    <% if admin_signed_in? %>
+        <%= link_to '어드민', admins_index_path, class: 'admin left' %>
+        <%= link_to '로그아웃', destroy_admin_session_path, method: :delete, class: 'admin right' %>
+    <% end %>
+</div>
+
+<div id="body">
+    <%= yield %>
+</div>
+
+<div id="footer">
+    <div class="footer_links">
+        <%= link_to 'WHO ARE WE', '#', class: 'list' %>
+        <div class="bar"></div>
+        <%= link_to 'HOME', root_path, class: 'list' %>
+        <div class="bar"></div>
+        <%= link_to 'CONTACT US', '#', class: 'list' %>
+    </div>
+    <div class="copyright">copyright by Ducklings All rights reserved</div>
+</div>
+
+</body>
+</html>

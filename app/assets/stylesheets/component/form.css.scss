@@ -1,0 +1,135 @@
+@import 'variables';
+
+#contents {
+  margin: 30px auto;
+  padding: 25px;
+  width: 750px;
+  background-color: white;
+  border-radius: 4px;
+  box-sizing: border-box;
+
+  @media #{$media-mobile} {
+    width: 300px;
+  }
+
+  > .title {
+    margin-bottom: 15px;
+    font-size: 25px;
+    font-weight: bold;
+  }
+
+  > .destroy {
+    float: right;
+    font-size: 13px;
+    color: $warm-grey;
+  }
+}
+
+form {
+  font-size: 18px;
+  overflow: hidden;
+
+  > .field {
+    margin: 15px;
+    overflow: hidden;
+    clear: both;
+
+    label {
+      display: block;
+      float: left;
+      width: 150px;
+      line-height: 30px;
+    }
+
+    select {
+      font-size: 18px;
+    }
+
+    input[type=text], input[type=number], input[type=email], input[type=password] {
+      display: block;
+      float: left;
+      padding: 0 10px;
+      width: 200px;
+      height: 30px;
+      border: 1px solid $warm-grey;
+      border-radius: 3px;
+      box-sizing: border-box;
+      font-size: 18px;
+      line-height: 30px;
+    }
+
+    > .member_field {
+      margin: 0 0 15px 150px;
+      overflow: hidden;
+
+      > .remove_member {
+        margin: 5px;
+        float: left;
+        width: 30px;
+        height: 20px;
+        background-color: $hover-bora;
+        border-radius: 6px;
+        font-size: 11px;
+        text-align: center;
+        line-height: 20px;
+        color: white;
+        cursor: pointer;
+      }
+    }
+
+    > .members {
+      overflow: hidden;
+
+      input[type=checkbox] {
+        float: left;
+        margin: 13px 8px;
+      }
+
+      > label {
+        width: 100px;
+        margin: 5px 0;
+        font-size: 16px;
+      }
+    }
+  }
+
+  input[type=submit] {
+    margin: 10px;
+    padding: 0;
+    float: right;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: bold;
+    color: $white;
+    background-color: $bora;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+#add_member {
+  margin: 10px;
+  float: left;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+
+  background-color: $hover-bora;
+  border-radius: 15px;
+  color: $white;
+  cursor: pointer;
+}
+
+#error_explanation {
+  margin-bottom: 15px;
+
+  > div {
+    font-size: 13px;
+    color: salmon;
+  }
+}

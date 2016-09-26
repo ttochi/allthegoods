@@ -1,0 +1,251 @@
+@import "variables";
+
+#contents {
+  margin: 20px auto;
+  width: 768px;
+  color: $greyish-brown;
+
+  @media #{$media-mobile} {
+    margin: 0 auto;
+    width: 320px;
+  }
+
+  > .item_img {
+    width: 420px;
+    height: 315px;
+    background-position: center;
+    background-size: cover;
+
+    @media #{$media-mobile} {
+      width: 320px;
+      height: 240px;
+    }
+  }
+
+  > #item_info {
+    position: fixed;
+    top: 65px;
+    right: 0;
+
+    padding: 19px;
+    width: 320px;
+    height: 315px;
+    background-color: $white;
+    border: solid 1px $bright-line;
+    box-sizing: border-box;
+
+    @media #{$media-mobile} {
+      border-bottom: none;
+      text-align: center;
+      height: inherit;
+    }
+
+    > .edit {
+      float: right;
+      font-size: 13px;
+      color: $warm-grey;
+    }
+
+    > .name {
+      font-size: 24px;
+      font-weight: bold;
+
+      @media #{$media-mobile} {
+        font-size: 16px;
+      }
+    }
+
+    > .artist {
+      margin: 7px 0 80px;
+      font-size: 18px;
+      @media #{$media-mobile} {
+        margin: 7px 0 25px;
+        font-size: 12px;
+      }
+    }
+
+    > .state {
+      float: left;
+      margin-bottom: 17px;
+      padding: 0 10px;
+      border: solid 1px $bora;
+      box-sizing: border-box;
+      line-height: 25px;
+      font-size: 16px;
+      text-align: center;
+      color: $bora;
+
+      @media #{$media-mobile} {
+        padding: 0 7.5px;
+        line-height: 17px;
+        font-size: 10px;
+      }
+
+      &.finish {
+        border: solid 1px $warm-grey;
+        color: $warm-grey;
+      }
+    }
+
+    > .due {
+      float: left;
+      margin-left: 15px;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 27px;
+      color: $bora;
+
+      @media #{$media-mobile} {
+        margin-left: 10px;
+        line-height: 19px;
+        font-size: 12px;
+      }
+    }
+
+    > .price {
+      clear: both;
+      padding: 17px;
+      border-top: solid 1px $bright-line;
+      font-size: 24px;
+      font-weight: bold;
+      text-align: right;
+
+      @media #{$media-mobile} {
+        clear: none;
+        float: right;
+        padding: 0;
+        border-top: none;
+        line-height: 19px;
+        font-size: 14px;
+      }
+    }
+
+    > .form_url {
+      display: block;
+      border-radius: 3px;
+      height: 32px;
+      line-height: 32px;
+      text-align: center;
+      background-color: $bora;
+      color: $white;
+      font-size: 14px;
+      font-weight: bold;
+      text-decoration: none;
+      cursor: pointer;
+
+      @media #{$media-mobile} {
+        clear: both;
+      }
+    }
+  }
+
+  > #seller_info {
+    position: fixed;
+    top: 405px;
+    right: 0;
+
+    padding: 13px 10px;
+    width: 320px;
+    background-color: $white;
+    border: solid 1px $bright-line;
+    box-sizing: border-box;
+
+    > .contributor {
+      overflow: hidden;
+      padding: 0 9px;
+
+      > .img {
+        float: left;
+        width: 60px;
+        height: 60px;
+        background-position: center;
+        background-size: cover;
+        border-radius: 30px;
+        border: 1px solid $bright-line;
+      }
+
+      > .name {
+        float: left;
+        margin: 15px 0 15px 17px;
+        font-size: 10px;
+        line-height: 11px;
+        width: 80px;
+        height: 30px;
+
+        > div {
+          margin-top: 4px;
+          font-size: 12px;
+          font-weight: bold;
+          line-height: 14px;
+
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 1; /* 라인수 */
+          -webkit-box-orient: vertical;
+          word-wrap: break-word;
+        }
+      }
+
+      > .link {
+        float: right;
+        margin: 17px 0;
+        padding: 0 9px;
+        height: 26px;
+        border-radius: 2px;
+        border: solid 1px $greyish;
+        box-sizing: border-box;
+        font-size: 10px;
+        color: $greyish;
+        line-height: 26px;
+        text-decoration: none;
+        cursor: pointer;
+
+        > div {
+          float: left;
+        }
+
+        > .twit_icon {
+          margin: 6px 5px 6px 0;
+          width: 12px;
+          height: 12px;
+          background: {
+            image: url('/assets/web_action_icon.png');
+            repeat: no-repeat;
+            size: $web_icon_width;
+            position: top -26px left -117px;
+          }
+        }
+      }
+    }
+
+    > .br {
+      margin: 10px 0;
+      border-top: 1px solid $bright-line;
+    }
+  }
+
+  > .img_set {
+    float: left;
+    margin-top: 25px;
+    margin-bottom: 80px;
+    width: 420px;
+    padding: 13px;
+    box-sizing: border-box;
+    background-color: $white;
+
+    @media #{$media-mobile} {
+      margin-top: 10px;
+      padding: 10px;
+      width: 320px;
+    }
+
+    > img {
+      width: 394px;
+
+      @media #{$media-mobile} {
+        width: 300px;
+      }
+    }
+  }
+}

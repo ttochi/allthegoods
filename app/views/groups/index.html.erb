@@ -1,0 +1,29 @@
+<% content_for :js_css do %>
+    <%= stylesheet_link_tag 'groups/index', media: 'all' %>
+    <%= javascript_include_tag 'groups/index' %>
+<% end %>
+
+<div class="carousel"></div>
+
+<div class="selector">
+    <div id="selector" class="title">
+        <div class="text">아이돌 선택</div>
+        <div class="icon"></div>
+    </div>
+    <div id="drop_down" class="drop_down">
+        <% @groups.each do |group| %>
+            <%= link_to group.name, group, class: 'text' %>
+        <% end %>
+    </div>
+</div>
+
+<div class="groups">
+    <% @groups.each do |group| %>
+        <div class="group">
+            <div class="group_img" style="background-image: url('<%= group.img %>')">
+                <%= link_to '', group %>
+            </div>
+            <div class="group_name"><%= group.name %></div>
+        </div>
+    <% end %>
+</div>

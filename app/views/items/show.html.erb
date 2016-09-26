@@ -1,0 +1,64 @@
+<% content_for :js_css do %>
+    <%= stylesheet_link_tag 'items/show', media: 'all' %>
+    <%= javascript_include_tag 'items/show' %>
+<% end %>
+
+<div id="contents">
+    <div class="item_img" style="background-image: url('<%= @item.img_main %>')"></div>
+
+    <div id="item_info">
+        <% if admin_signed_in? %>
+            <%= link_to '굿즈 정보 수정', edit_item_path(@item), class: 'edit' %>
+        <% end %>
+
+        <div class="name"><%= @item.name %></div>
+        <div class="artist">@<%= @item.artist_url %>님의 굿즈</div>
+
+        <% deadline = ((@item.due_date.to_time - Time.now)/1.day).ceil %>
+        <div class="state <%= 'finish' if deadline < 0 %>"><%= deadline >= 0 ? '선입금' : '판매완료' %></div>
+        <% if deadline > 0 %>
+            <div class="due">종료 <%= deadline %>일 전</div>
+        <% elsif deadline == 0 %>
+            <div class="due">오늘 종료</div>
+        <% end %>
+
+        <div class="price"><%= number_to_currency(@item.price) %></div>
+        <%= link_to '주문하기', @item.form_url, class: 'form_url' %>
+    </div>
+
+    <div id="seller_info">
+        <% if @item.artist_url.present? %>
+            <div class="contributor">
+                <div class="img" style="background-image: url('<%= @artist_img %>')"></div>
+                <div class="name">팬아티스트
+                    <div><%= @artist_name %></div>
+                </div>
+                <%= link_to 'https://twitter.com/' + @item.artist_url, target: '_blank', class: 'link' do %>
+                    <div class="twit_icon"></div>
+                    <div>트위터 바로가기</div>
+                <% end %>
+            </div>
+        <% end %>
+        <% if @item.seller_url.present? %>
+            <div class="br"></div>
+            <div class="contributor">
+                <div class="img" style="background-image: url('<%= @seller_img %>')"></div>
+                <div class="name">총대
+                    <div><%= @seller_name %></div>
+                </div>
+                <%= link_to 'https://twitter.com/' + @item.seller_url, target: '_blank', class: 'link' do %>
+                    <div class="twit_icon"></div>
+                    <div>트위터 바로가기</div>
+                <% end %>
+            </div>
+        <% end %>
+    </div>
+
+    <div class="img_set">
+        <% for i in 0..4 %>
+            <% if @detail_img[i].present? %>
+                <%= image_tag @detail_img[i] %>
+            <% end %>
+        <% end %>
+    </div>
+</div>

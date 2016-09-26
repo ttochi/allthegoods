@@ -1,0 +1,9 @@
+<% content_for :js_css do %>
+    <%= stylesheet_link_tag 'component/form', media: 'all' %>
+    <%= javascript_include_tag 'component/form' %>
+<% end %>
+
+<div id="contents">
+    <div class="title">그룹 생성</div>
+    <%= render 'form' %>
+</div>

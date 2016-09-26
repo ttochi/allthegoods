@@ -1,0 +1,10 @@
+<% content_for :js_css do %>
+    <%= stylesheet_link_tag 'component/form', media: 'all' %>
+    <%= javascript_include_tag 'component/form' %>
+<% end %>
+
+<div id="contents">
+    <%= link_to '굿즈 삭제', @item, method: :delete, data: {confirm: '정말로 삭제하시겠습니까?'}, class: 'destroy' %>
+    <div class="title">굿즈 편집</div>
+    <%= render 'form' %>
+</div>

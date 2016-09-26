@@ -1,0 +1,66 @@
+<%= form_for(@item) do |f| %>
+    <% if @item.errors.any? %>
+        <div id="error_explanation">
+            <% @item.errors.full_messages.each do |message| %>
+                <div><%= message %></div>
+            <% end %>
+        </div>
+    <% end %>
+
+    <div class="field">
+        <%= f.label :name, '굿즈명' %>
+        <%= f.text_field :name, required: true %>
+    </div>
+    <div class="field">
+        <%= f.label :artist_url, '금손 계정' %>
+        <%= f.text_field :artist_url, required: true %>
+    </div>
+    <div class="field">
+        <%= f.label :seller_url, '총대 계정' %>
+        <%= f.text_field :seller_url, placeholder: '겹치면 비움' %>
+    </div>
+    <div class="field">
+        <%= f.label :form_url, '폼 링크' %>
+        <%= f.text_field :form_url, pattern: 'https?://.+', placeholder: 'http(s)://~', required: true %>
+    </div>
+    <div class="field">
+        <%= f.label :price, '가격' %>
+        <%= f.number_field :price, min: 0, step: 100, required: true %>
+    </div>
+    <div class="field">
+        <%= f.label :due_date, '마감일' %>
+        <%= f.date_select :due_date, required: true %>
+    </div>
+    <div class="field">
+        <%= f.label :img_main, '대표이미지 필수' %>
+        <%= f.text_field :img_main, pattern: 'https?://.+', placeholder: 'http(s)://~', required: true %>
+    </div>
+    <div class="field">
+        <%= f.label :img_1, '세부이미지(1) 필수' %>
+        <%= f.text_field :img_1, pattern: 'https?://.+', placeholder: 'http(s)://~', required: true %>
+    </div>
+    <div class="field">
+        <%= f.label :img_2, '세부이미지(2)' %>
+        <%= f.text_field :img_2, pattern: 'https?://.+', placeholder: 'http(s)://~' %>
+    </div>
+    <div class="field">
+        <%= f.label :img_3, '세부이미지(3)' %>
+        <%= f.text_field :img_3, pattern: 'https?://.+', placeholder: 'http(s)://~' %>
+    </div>
+    <div class="field">
+        <%= f.label :img_4, '세부이미지(4)' %>
+        <%= f.text_field :img_4, pattern: 'https?://.+', placeholder: 'http(s)://~' %>
+    </div>
+    <div class="field">
+        <%= f.label :img_5, '세부이미지(5)' %>
+        <%= f.text_field :img_5, pattern: 'https?://.+', placeholder: 'http(s)://~' %>
+    </div>
+    <div class="field">
+        <label>해당 멤버</label>
+        <div class="members">
+            <%= f.collection_check_boxes(:member_ids, Member.all, :id, :name) %>
+        </div>
+    </div>
+
+    <%= f.submit :submit, value: '등록하기', id: 'submit' %>
+<% end %>

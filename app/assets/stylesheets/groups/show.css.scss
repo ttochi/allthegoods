@@ -1,0 +1,259 @@
+@import "variables";
+
+#body {
+  > .filter {
+    position: relative;
+    padding-left: 20px;
+    background-color: $white;
+    color: $greyish-brown;
+    font-weight: 700;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+
+    @media #{$media-mobile} {
+      height: 32px;
+      line-height: 32px;
+      text-align: left;
+    }
+
+    > .edit {
+      position: absolute;
+      left: 20px;
+      font-size: 13px;
+      font-weight: normal;
+      color: $warm-grey;
+
+      @media #{$media-mobile} {
+        left: inherit;
+        right: 200px;
+      }
+    }
+
+    > .member, .order {
+      position: absolute;
+      top: 0;
+      background-color: white;
+      font-size: 12px;
+      line-height: 40px;
+      font-weight: normal;
+      color: $warm-grey;
+      cursor: pointer;
+      border-left: 1px solid $bright-line;
+      text-align: center;
+
+      @media #{$media-mobile} {
+        line-height: 32px;
+      }
+
+      > .icon {
+        display: inline-block;
+        margin-left: 7px;
+        width: 9px;
+        height: 5px;
+        background: {
+          image: url('/assets/web_action_icon.png');
+          repeat: no-repeat;
+          size: $web_icon_width;
+          position: top -30px left -100px;
+        }
+      }
+    }
+
+    > .member_filter, .order_filter {
+      display: none;
+      position: absolute;
+      z-index: 100;
+      max-height: 160px;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      background-color: $white;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+
+      > a {
+        display: block;
+        width: 100%;
+        height: 30px;
+        line-height: 30px;
+        border-top: 1px solid $bright-line;
+        font-size: 12px;
+        font-weight: normal;
+        color: $greyish-brown;
+        text-align: center;
+        text-decoration: none;
+
+        > .active {
+          color: $bora;
+        }
+
+        &:hover {
+          background-color: $light-bora;
+        }
+      }
+    }
+
+    > .member_filter {
+      &::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background-color: #e6e6e6;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: #cccccc;
+      }
+    }
+
+    > .member, .member_filter {
+      width: 106px;
+      right: 80px;
+
+      > a {
+        padding: 0 13px;
+        box-sizing: border-box;
+        text-align: left;
+        font-size: 14px;
+      }
+    }
+    > .order, .order_filter {
+      width: 80px;
+      right: 0;
+    }
+  }
+
+  > .info {
+    margin: 16px auto;
+    font-size: 12px;
+    text-align: center;
+    color: $warm-grey;
+  }
+
+  > .items {
+    margin: 0 auto;
+    width: 750px;
+    min-height: 100px;
+
+    @media #{$media-mobile} {
+      width: 300px;
+    }
+
+    > .item {
+      display: block;
+      float: left;
+
+      margin: 0 9px 18px;
+      width: 232px;
+
+      border: solid 1px $bright-line;
+      border-radius: 2px;
+      background-color: $white;
+      box-sizing: border-box;
+      text-decoration: none;
+      font-size: 14px;
+      color: $greyish-brown;
+
+      @media #{$media-mobile} {
+        margin: 0 auto 12px;
+        width: 300px;
+        height: 142px;
+      }
+
+      > .item_img {
+        float: left;
+        width: 230px;
+        height: 190px;
+        background-position: center;
+        background-size: cover;
+
+        @media #{$media-mobile} {
+          width: 140px;
+          height: 140px;
+          border-right: solid 1px $bright-line;
+        }
+      }
+
+      > .item_info {
+        position: relative;
+        padding: 11px;
+        height: 105px;
+        overflow: hidden;
+        box-sizing: border-box;
+        border-bottom: solid 1px $bright-line;
+
+        > .name {
+          margin-bottom: 7px;
+          font-size: 14px;
+          font-weight: bold;
+          color: $greyish-brown;
+        }
+
+        > .artist {
+          font-size: 11px;
+          word-break: keep-all;
+        }
+
+        > .state {
+          position: absolute;
+          bottom: 10px;
+          padding: 0 6px;
+          border: solid 1px $bora;
+          height: 17px;
+          line-height: 17px;
+          font-size: 11px;
+          text-align: center;
+          color: $bora;
+
+          &.finish {
+            border: solid 1px $warm-grey;
+            color: $warm-grey;
+          }
+        }
+
+        > .due {
+          position: absolute;
+          bottom: 10px;
+          left: 65px;
+          font-size: 14px;
+          font-weight: 700;
+          line-height: 19px;
+          color: $bora;
+        }
+      }
+
+      > .item_detail {
+        overflow: hidden;
+        padding: 11px;
+
+        > .view_icon {
+          float: left;
+          margin: 3px 5px 3px 0;
+          width: 15px;
+          height: 11px;
+          background: {
+            image: url('/assets/web_action_icon.png');
+            repeat: no-repeat;
+            size: $web_icon_width;
+            position: top -26px left -117px;
+          }
+        }
+
+        > .view_count {
+          float: left;
+          font-size: 10px;
+          line-height: 17px;
+          color: $greyish;
+        }
+
+        > .price {
+          float: right;
+          font-size: 14px;
+          line-height: 17px;
+          text-align: right;
+          color: $greyish-brown;
+        }
+      }
+    }
+  }
+}

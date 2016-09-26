@@ -1,0 +1,31 @@
+<%= form_for(@group) do |f| %>
+    <% if @group.errors.any? %>
+        <div id="error_explanation">
+            <% @group.errors.full_messages.each do |message| %>
+                <div><%= message %></div>
+            <% end %>
+        </div>
+    <% end %>
+
+    <div class="field">
+        <%= f.label :name, '그룹명' %>
+        <%= f.text_field :name, required: true %>
+    </div>
+    <div class="field">
+        <%= f.label :img, '대표 이미지 url' %>
+        <%= f.text_field :img, required: true %>
+    </div>
+    <div class="field">
+        <%= f.label :members, '멤버 이름' %>
+        <%= f.fields_for :members do |ff| %>
+            <div class="member_field">
+                <%= ff.text_field :name %>
+                <%= ff.hidden_field :_destroy %>
+                <div class="remove_member">-</div>
+            </div>
+        <% end %>
+    </div>
+    <div id="add_member">+</div>
+
+    <%= f.submit :submit, value: '등록하기', id: 'submit' %>
+<% end %>

@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  type: 
+  price: 1
+  state: 1
+  due_date: 2016-08-27 15:37:30
+  seller: MyString
+  seller_url: MyString
+  artist: MyString
+  artist_url: MyString
+  form_url: MyString
+  img_main: MyString
+  img_1: MyString
+  img_2: MyString
+  img_3: MyString
+  img_4: MyString
+  img_5: MyString
+  view_count: 1
+
+two:
+  name: MyString
+  type: 
+  price: 1
+  state: 1
+  due_date: 2016-08-27 15:37:30
+  seller: MyString
+  seller_url: MyString
+  artist: MyString
+  artist_url: MyString
+  form_url: MyString
+  img_main: MyString
+  img_1: MyString
+  img_2: MyString
+  img_3: MyString
+  img_4: MyString
+  img_5: MyString
+  view_count: 1

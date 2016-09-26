@@ -1,0 +1,41 @@
+<% content_for :js_css do %>
+    <%= stylesheet_link_tag 'admin_pages/index', media: 'all' %>
+<% end %>
+
+<div id="contents">
+    <%= link_to '그룹 등록', new_group_path, class: 'assign' %>
+    <%= link_to '굿즈 등록', new_item_path, class: 'assign' %>
+
+    <%= form_tag admins_index_path, method: 'get', id: 'search_form' do %>
+        <%= label_tag :query, '굿즈명' %>
+        <%= text_field_tag :query, params[:query] %>
+        <%= submit_tag '검색하기' %>
+    <% end %>
+
+    <div class="order_filter">
+        <%= link_to '마감순', params.merge(order: 'due'), class: 'due' %>
+    </div>
+
+    <table>
+        <thead>
+        <tr>
+            <th class="name">굿즈명</th>
+            <th class="due">마감일</th>
+            <th class="edit">수정일</th>
+            <th class="edit">수정</th>
+            <th class="destroy">삭제</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @items.each do |item| %>
+            <tr>
+                <td class="name"><%= link_to item.name, item_path(item), target: '_blank' %></td>
+                <td class="due"><%= item.due_date.to_date %></td>
+                <td class="due"><%= item.updated_at.to_date %></td>
+                <td class="edit"><%= link_to '수정', edit_item_path(item), class: 'button' %></td>
+                <td class="destroy"><%= link_to '삭제', item, method: :delete, data: {confirm: '정말로 삭제하시겠습니까?'}, class: 'button' %></td>
+            </tr>
+        <% end %>
+        </tbody>
+    </table>
+</div>

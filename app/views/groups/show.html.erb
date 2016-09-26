@@ -1,0 +1,80 @@
+<% content_for :js_css do %>
+    <%= stylesheet_link_tag 'groups/show', media: 'all' %>
+    <%= javascript_include_tag 'groups/show' %>
+<% end %>
+
+<div class="filter">
+    <% if admin_signed_in? %>
+        <%= link_to '그룹 정보 수정', edit_group_path(@group), class: 'edit' %>
+    <% end %>
+    <%= @group.name %>
+    <div class="member">
+        <% if params[:member] == '0' or params[:member].blank? %>
+            멤버 전체
+        <% else %>
+            <%= @member.name %>
+        <% end %>
+        <div class="icon"></div>
+    </div>
+    <div class="order">
+        <% if params[:order] == 'popular' %>
+            조회순
+        <% elsif params[:order] == 'deadline' %>
+            마감임박
+        <% else %>
+            최신순
+        <% end %>
+        <div class="icon"></div>
+    </div>
+    <div class="member_filter">
+        <%= link_to params.except(:member) do %>
+            <div class="<%= 'active' if params[:member].blank? %>">전체</div>
+        <% end %>
+
+        <% @members.each do |member| %>
+            <%= link_to params.merge(member: member.id) do %>
+                <div class="<%= 'active' if params[:member] == member.id.to_s %>"><%= member.name %></div>
+            <% end %>
+        <% end %>
+    </div>
+    <div class="order_filter">
+        <%= link_to params.merge(order: 'recent') do %>
+            <div class="<%= 'active' if params[:order] == 'recent' or params[:order].blank? %>">최신순</div>
+        <% end %>
+        <%= link_to params.merge(order: 'popular') do %>
+            <div class="<%= 'active' if params[:order] == 'popular' %>">조회순</div>
+        <% end %>
+        <%= link_to params.merge(order: 'deadline') do %>
+            <div class="<%= 'active' if params[:order] == 'deadline' %>">마감임박</div>
+        <% end %>
+    </div>
+</div>
+
+<div class="info"><%= @items.length %>개의 굿즈가 있어요!</div>
+
+<div class="items">
+    <% @items.each do |item| %>
+        <%= link_to item_path(item.id), class: 'item' do %>
+            <div class="item_img" style="background-image: url('<%= item.img_main %>')"></div>
+
+            <div class="item_info">
+                <div class="name"><%= item.name %></div>
+                <div class="artist">@<%= item.artist_url %>님의 굿즈</div>
+
+                <% deadline = ((item.due_date.to_time - Time.now)/1.day).ceil %>
+                <div class="state <%= 'finish' if deadline < 0 %>"><%= deadline >= 0 ? '선입금' : '판매완료' %></div>
+                <% if deadline > 0 %>
+                    <div class="due">D-<%= deadline %></div>
+                <% elsif deadline == 0 %>
+                    <div class="due">D-day</div>
+                <% end %>
+            </div>
+
+            <div class="item_detail">
+                <div class="view_icon"></div>
+                <div class="view_count"><%= item.view_count %></div>
+                <div class="price"><%= number_to_currency(item.price) %></div>
+            </div>
+        <% end %>
+    <% end %>
+</div>
