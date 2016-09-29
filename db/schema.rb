@@ -46,25 +46,25 @@ ActiveRecord::Schema.define(version: 20160917071403) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.string   "kind",       limit: 255
-    t.integer  "price",      limit: 4
-    t.integer  "state",      limit: 4
+    t.string   "name",        limit: 255
+    t.string   "kind",        limit: 255
+    t.integer  "price",       limit: 4
+    t.integer  "state",       limit: 4
     t.datetime "due_date"
-    t.string   "seller",     limit: 255
-    t.string   "seller_url", limit: 255
-    t.string   "artist",     limit: 255
-    t.string   "artist_url", limit: 255
-    t.string   "form_url",   limit: 255
-    t.string   "img_main",   limit: 255
-    t.string   "img_1",      limit: 255
-    t.string   "img_2",      limit: 255
-    t.string   "img_3",      limit: 255
-    t.string   "img_4",      limit: 255
-    t.string   "img_5",      limit: 255
-    t.integer  "view_count", limit: 4,   default: 0, null: false
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.string   "seller_url",  limit: 255
+    t.string   "artist_url",  limit: 255
+    t.string   "form_url",    limit: 255
+    t.string   "description", limit: 255
+    t.string   "img_main",    limit: 255
+    t.string   "img_1",       limit: 255
+    t.string   "img_2",       limit: 255
+    t.string   "img_3",       limit: 255
+    t.string   "img_4",       limit: 255
+    t.string   "img_5",       limit: 255
+    t.integer  "view_count",  limit: 4,   default: 0, null: false
+    t.boolean  "on_hide"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   create_table "members", force: :cascade do |t|
