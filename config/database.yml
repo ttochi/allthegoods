@@ -24,6 +24,6 @@ production:
   encoding: utf8
   pool: 5
   username: allthegoods
-  password: <%= ENV['ALLTHEGOODS_DATABASE_PASSWORD'] %>
-  socket: /tmp/mysql.sock
+  password: allthegoodsDB!
+  socket: /var/run/mysqld/mysqld.sock
   database: allthegoods_production

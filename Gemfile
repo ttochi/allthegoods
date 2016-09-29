@@ -31,6 +31,11 @@ gem 'devise'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
+gem 'capistrano'
+gem 'capistrano-rvm'
+gem 'capistrano-rails'
+gem 'capistrano-bundler'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
