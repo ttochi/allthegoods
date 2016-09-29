@@ -23,7 +23,7 @@ production:
   adapter: mysql2
   encoding: utf8
   pool: 5
-  username: allthegoods
+  username: root
   password: allthegoodsDB!
   socket: /var/run/mysqld/mysqld.sock
   database: allthegoods_production
