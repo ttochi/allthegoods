@@ -35,6 +35,7 @@ gem 'capistrano'
 gem 'capistrano-rvm'
 gem 'capistrano-rails'
 gem 'capistrano-bundler'
+gem 'capistrano-rails-collection'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
