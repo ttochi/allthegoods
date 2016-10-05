@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-    root 'groups#index'
+    root 'items#index'
 
     resources :groups
     resources :items
