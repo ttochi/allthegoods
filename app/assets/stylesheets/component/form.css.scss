@@ -123,6 +123,18 @@ form {
     border: none;
     cursor: pointer;
   }
+
+  select {
+    float: left;
+    padding: 0 10px;
+    width: 220px;
+    height: 30px;
+    border: 1px solid $warm-grey;
+    border-radius: 3px;
+    box-sizing: border-box;
+    font-size: 18px;
+    line-height: 30px;
+  }
 }
 
 #add_member {

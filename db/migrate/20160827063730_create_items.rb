@@ -17,7 +17,7 @@ class CreateItems < ActiveRecord::Migration
             t.string :img_4
             t.string :img_5
             t.integer :view_count, null: false, default: 0
-            t.boolean :on_hide
+            t.boolean :on_hide, null: false, default: false
 
             t.timestamps null: false
         end

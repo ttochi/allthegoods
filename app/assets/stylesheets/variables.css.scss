@@ -2,6 +2,7 @@ $media-mobile: "only screen and (max-width:767px)";  // mobile
 $media-tablet: "only screen and (min-width:768px) and (max-width:1023px)"; // tablet
 $media-pc: "only screen and (min-width:1024px)"; // PC
 $media-not-pc: "only screen and (max-width: 1023px)"; // not pc
+$media-not-mobile: "only screen and (min-width:768px)"; // not mobile
 
 $bora: #651fff;
 $light-bora: #ece3ff;

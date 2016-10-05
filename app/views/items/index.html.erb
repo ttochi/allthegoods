@@ -53,11 +53,11 @@
         <tbody>
         <% @items.each do |item| %>
             <tr>
-                <td class="img"><%= image_tag item.img_main %></td>
+                <td class="img"><div class="item_img" style="background-image: url('<%= item.img_main %>')"></div></td>
                 <td class="group"><%= item.members.first.group.name %></td>
                 <td class="name"><%= item.name %></td>
                 <td class="link"><%= link_to '바로가기', item.form_url, target: '_blank', class: 'form' %></td>
-                <td class="link"><%= link_to '바로가기', 'https://twitter.com/' + item.artist_url, target: '_blank', class: 'twitter' %></td>
+                <td class="link"><%= link_to '바로가기', 'https://twitter.com/' + item.seller_url, target: '_blank', class: 'twitter' %></td>
             </tr>
         <% end %>
         </tbody>

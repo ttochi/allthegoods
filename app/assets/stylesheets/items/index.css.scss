@@ -189,8 +189,17 @@
     .img {
       width: 12%;
 
-      > img {
-        width: 100%;
+      > .item_img {
+        margin: 0 auto;
+        width: 35px;
+        height: 35px;
+        background-size: cover;
+        background-position: center;
+
+        @media #{$media-not-mobile} {
+          width: 60px;
+          height: 60px;
+        }
       }
     }
 
