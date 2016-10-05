@@ -7,6 +7,8 @@
         </div>
     <% end %>
 
+    <div id="add_member">+ 멤버추가</div>
+
     <div class="field">
         <%= f.label :name, '그룹명' %>
         <%= f.text_field :name, required: true %>
@@ -25,7 +27,6 @@
             </div>
         <% end %>
     </div>
-    <div id="add_member">+</div>
 
     <%= f.submit :submit, value: '등록하기', id: 'submit' %>
 <% end %>

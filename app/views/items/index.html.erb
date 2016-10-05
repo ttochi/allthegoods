@@ -28,8 +28,17 @@
 
     <div class="group_select">
         <div id="group_selector">
-            아이돌 선택
-            <div class="icon"></div>
+            <div class="selected">
+                <% if params[:group].present? %>
+                    <%= Group.where('id = ?', params[:group]).first.name %>
+                <% else %>
+                    전체보기
+                <% end %>
+            </div>
+            <div class="selector">
+                아이돌 선택
+                <div class="icon"></div>
+            </div>
         </div>
         <div id="drop_down">
             <%= link_to '전체보기', params.except(:group).except(:week), class: 'group' %>
@@ -53,7 +62,9 @@
         <tbody>
         <% @items.each do |item| %>
             <tr>
-                <td class="img"><div class="item_img" style="background-image: url('<%= item.img_main %>')"></div></td>
+                <td class="img">
+                    <div class="item_img" style="background-image: url('<%= item.img_main %>')"></div>
+                </td>
                 <td class="group"><%= item.members.first.group.name %></td>
                 <td class="name"><%= item.name %></td>
                 <td class="link"><%= link_to '바로가기', item.form_url, target: '_blank', class: 'form' %></td>

@@ -20,6 +20,6 @@ end
 module Constants
     module SaleState
         extend Convertible
-        STR = %w[수량조사 선입금 판매완료]
+        STR = %w[수량조사 선입금 일반입금 판매완료]
     end
 end
