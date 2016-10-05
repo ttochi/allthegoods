@@ -2,6 +2,29 @@ class ItemsController < ApplicationController
     before_action :authenticate_admin!, only: [:new, :create, :edit, :update, :destroy]
     before_action :set_item, only: [:show, :edit, :update, :destroy]
 
+    def index
+        params[:state] ||= '1'
+        params[:week] ||= Date.today.cweek
+
+        @start_date = Date.commercial(Date.today.year, params[:week].to_i, 1)
+        @end_date = Date.commercial(Date.today.year, params[:week].to_i + 1, 1)
+
+        @groups = Group.all
+
+        @items = Item.all
+
+        if params[:group].present?
+            @items = @items.joins('LEFT JOIN corresponds ON corresponds.item_id = items.id')
+                          .joins('LEFT JOIN members ON corresponds.member_id = members.id')
+                          .where('members.group_id = ?', params[:group])
+                          .group('items.id')
+        end
+
+        @items = @items.where('state = ?', params[:state])
+        @items = @items.where('due_date >= ? and due_date < ?', @start_date, @end_date).order(due_date: :asc)
+
+    end
+
     def show
         require 'nokogiri'
         require 'open-uri'

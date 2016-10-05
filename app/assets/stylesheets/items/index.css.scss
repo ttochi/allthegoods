@@ -1,0 +1,236 @@
+@import "variables";
+
+#contents {
+  margin: 20px auto;
+  width: 768px;
+  font-size: 11px;
+  color: $greyish-brown;
+  background-color: $white;
+
+  @media #{$media-mobile} {
+    margin: 0 auto;
+    width: 320px;
+  }
+
+  > .week_select {
+    height: 45px;
+    text-align: center;
+    border-bottom: 1px solid $bright-line;
+
+    > .this_week, .week_num {
+      float: left;
+      width: 70px;
+      line-height: 45px;
+      text-align: center;
+    }
+
+    > .this_week {
+      display: block;
+      font-size: 14px;
+      font-weight: bold;
+      color: $greyish-brown;
+      text-decoration: none;
+      border-right: solid 1px $bright-line;
+
+      &:hover {
+        color: $hover-bora;
+      }
+    }
+
+    > .week_num {
+      color: $warm-grey;
+    }
+
+    > .week {
+      display: block;
+      float: right;
+      padding: 14.5px 10px;
+
+      > .text {
+        float: left;
+        font-size: 12px;
+        line-height: 16px;
+        color: $greyish-brown;
+      }
+
+      > .arrow {
+        margin: 0 5px;
+        float: left;
+        width: 9.5px;
+        height: 16px;
+        background: {
+          image: url('/assets/web_list_icon.png');
+          repeat: no-repeat;
+          size: $web_list_width;
+          position: top -22px left 0;
+        }
+      }
+
+      &.next {
+        > .text {
+          float: right;
+        }
+
+        > .arrow {
+          float: right;
+          background-position: top -22px left -14px;
+        }
+      }
+
+      &:hover {
+        > .text {
+          color: $hover-bora;
+        }
+      }
+    }
+  }
+
+  > .state_select {
+    height: 34px;
+    overflow: hidden;
+
+    #survey {
+      float: left;
+    }
+
+    #paying {
+      float: right;
+    }
+
+    #paying, #survey {
+      width: 50%;
+      height: 34px;
+      border-bottom: 1px solid $bright-line;
+      box-sizing: border-box;
+      text-align: center;
+      line-height: 34px;
+      color: $warm-grey;
+      cursor: pointer;
+
+      &.active {
+        border-bottom: 2px solid $bora;
+        color: $greyish-brown;
+      }
+    }
+  }
+
+  > .group_select {
+    background-color: $bgcolor;
+    padding: 0 5px;
+    overflow: hidden;
+
+    > #group_selector {
+      cursor: pointer;
+      line-height: 25px;
+
+      > .icon {
+        display: inline-block;
+        margin: 0 5px;
+        width: 9px;
+        height: 4.5px;
+        background: {
+          image: url('/assets/web_list_icon.png');
+          repeat: no-repeat;
+          size: $web_list_width;
+          position: top -28px left -28px;
+        }
+      }
+    }
+
+    > #drop_down {
+      display: none;
+      overflow: hidden;
+      padding-bottom: 5px;
+
+      > .group {
+        display: block;
+        float: left;
+        margin: 1.5px;
+        padding: 0 15px;
+
+        width: 75px;
+        height: 30px;
+        box-sizing: border-box;
+        background-color: $white;
+        border: solid 1px $warm-grey;
+        cursor: pointer;
+
+        text-align: center;
+        line-height: 30px;
+        color: $greyish-brown;
+        text-decoration: none;
+
+        &:hover {
+          color: $hover-bora;
+        }
+      }
+    }
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+
+    th {
+      margin-bottom: 3px;
+      border-top: solid 1px $warm-grey;
+      border-bottom: solid 1px $warm-grey;
+      box-sizing: border-box;
+      font-weight: normal;
+      text-align: center;
+      line-height: 35px;
+    }
+
+    td {
+      border-bottom: 1px solid $bright-line;
+    }
+
+    .img {
+      width: 12%;
+
+      > img {
+        width: 100%;
+      }
+    }
+
+    .group {
+      width: 18%;
+    }
+
+    .name {
+      width: 31%;
+      padding: 0 10px;
+      text-align: left;
+    }
+
+    .link {
+      width: 19%;
+
+      > a {
+        display: block;
+        margin: 3px;
+        height: 24px;
+        border-radius: 13px;
+        background-color: #d0baff;
+
+        line-height: 24px;
+        font-weight: bold;
+        text-align: center;
+        color: $white;
+        text-decoration: none;
+
+        &.twitter {
+          background-color: #89ceff;
+        }
+      }
+    }
+  }
+
+  #empty {
+    height: 100px;
+    line-height: 100px;
+    color: $warm-grey;
+    text-align: center;
+  }
+}

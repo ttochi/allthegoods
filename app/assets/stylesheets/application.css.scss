@@ -16,27 +16,19 @@ body {
   > .nav {
     position: relative;
     background-color: $bora;
-    height: 45px;
+    height: 54px;
     text-align: center;
-
-    @media #{$media-mobile} {
-      height: 36px;
-    }
 
     > .logo {
       display: inline-block;
-      margin: 15px 0;
-      width: 146px;
-      height: 15px;
+      margin: 18px 0;
+      width: 112px;
+      height: 18px;
       background: {
-        image: url('/assets/web_action_icon.png');
+        image: url('/assets/web_list_icon.png');
         repeat: no-repeat;
-        size: $web_icon_width;
+        size: $web_list_width;
         position: top 0 left 0;
-      }
-
-      @media #{$media-mobile} {
-        margin: 10.5px 0;
       }
     }
 
@@ -44,7 +36,7 @@ body {
       position: absolute;
       color: $white;
       font-size: 15px;
-      line-height: 45px;
+      line-height: 54px;
       text-decoration: none;
 
       &.left {
@@ -53,11 +45,6 @@ body {
 
       &.right {
         right: 15px;
-      }
-
-      @media #{$media-mobile} {
-        font-size: 12px;
-        line-height: 36px;
       }
     }
   }

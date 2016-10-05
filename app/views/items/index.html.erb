@@ -1,0 +1,68 @@
+<% content_for :js_css do %>
+    <%= stylesheet_link_tag 'items/index', media: 'all' %>
+    <%= javascript_include_tag 'items/index' %>
+<% end %>
+
+<div id="contents">
+    <div class="week_select">
+        <%= link_to '이번주', params.merge(week: Date.today.cweek), class: 'this_week' %>
+        <div class="week_num"><%= @start_date.strftime('%m/%d~') %><%= (@end_date-1.day).strftime('%d') %></div>
+        <%= link_to params.merge(week: params[:week].to_i+1), class: 'next week' do %>
+            <div class="arrow"></div>
+            <div class="text">다음</div>
+        <% end %>
+        <%= link_to params.merge(week: params[:week].to_i-1), class: 'last week' do %>
+            <div class="arrow"></div>
+            <div class="text">이전</div>
+        <% end %>
+    </div>
+
+    <div class="state_select">
+        <%= link_to params.merge(state: 0) do %>
+            <div id="survey" class="<%= 'active' if params[:state] == '0' %>">'수량조사 기준</div>
+        <% end %>
+        <%= link_to params.except(:state) do %>
+            <div id="paying" class="<%= 'active' if params[:state] != '0' %>">선입금 기준</div>
+        <% end %>
+    </div>
+
+    <div class="group_select">
+        <div id="group_selector">
+            아이돌 선택
+            <div class="icon"></div>
+        </div>
+        <div id="drop_down">
+            <%= link_to '전체보기', params.except(:group).except(:week), class: 'group' %>
+
+            <% @groups.each do |group| %>
+                <%= link_to group.name, params.merge(group: group.id).except(:week), class: 'group' %>
+            <% end %>
+        </div>
+    </div>
+
+    <table>
+        <thead>
+        <tr>
+            <th class="img"></th>
+            <th class="group">아이돌</th>
+            <th class="name">굿즈 이름</th>
+            <th class="link form">폼링크</th>
+            <th class="link twit">트위터</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @items.each do |item| %>
+            <tr>
+                <td class="img"><%= image_tag item.img_main %></td>
+                <td class="group"><%= item.members.first.group.name %></td>
+                <td class="name"><%= item.name %></td>
+                <td class="link"><%= link_to '바로가기', item.form_url, target: '_blank', class: 'form' %></td>
+                <td class="link"><%= link_to '바로가기', 'https://twitter.com/' + item.artist_url, target: '_blank', class: 'twitter' %></td>
+            </tr>
+        <% end %>
+        </tbody>
+    </table>
+    <% if @items.length <= 0 %>
+        <div id="empty">굿즈 정보 수집 중입니다!</div>
+    <% end %>
+</div>
