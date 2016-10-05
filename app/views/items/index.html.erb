@@ -19,7 +19,7 @@
 
     <div class="state_select">
         <%= link_to params.merge(state: 0) do %>
-            <div id="survey" class="<%= 'active' if params[:state] == '0' %>">'수량조사 기준</div>
+            <div id="survey" class="<%= 'active' if params[:state] == '0' %>">수량조사 기준</div>
         <% end %>
         <%= link_to params.except(:state) do %>
             <div id="paying" class="<%= 'active' if params[:state] != '0' %>">선입금 기준</div>

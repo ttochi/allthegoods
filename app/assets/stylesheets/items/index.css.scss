@@ -1,16 +1,11 @@
 @import "variables";
 
 #contents {
-  margin: 20px auto;
-  width: 768px;
-  font-size: 11px;
+  margin: 0 auto;
+  max-width: 768px;
+  font-size: 14px;
   color: $greyish-brown;
   background-color: $white;
-
-  @media #{$media-mobile} {
-    margin: 0 auto;
-    width: 320px;
-  }
 
   > .week_select {
     height: 45px;
@@ -19,14 +14,14 @@
 
     > .this_week, .week_num {
       float: left;
-      width: 70px;
       line-height: 45px;
       text-align: center;
     }
 
     > .this_week {
       display: block;
-      font-size: 14px;
+      width: 70px;
+
       font-weight: bold;
       color: $greyish-brown;
       text-decoration: none;
@@ -38,6 +33,7 @@
     }
 
     > .week_num {
+      margin-left: 10px;
       color: $warm-grey;
     }
 
@@ -48,7 +44,6 @@
 
       > .text {
         float: left;
-        font-size: 12px;
         line-height: 16px;
         color: $greyish-brown;
       }
@@ -86,7 +81,7 @@
   }
 
   > .state_select {
-    height: 34px;
+    height: 45px;
     overflow: hidden;
 
     #survey {
@@ -99,16 +94,16 @@
 
     #paying, #survey {
       width: 50%;
-      height: 34px;
+      height: 45px;
       border-bottom: 1px solid $bright-line;
       box-sizing: border-box;
       text-align: center;
-      line-height: 34px;
+      line-height: 45px;
       color: $warm-grey;
       cursor: pointer;
 
       &.active {
-        border-bottom: 2px solid $bora;
+        border-bottom: 3px solid $bora;
         color: $greyish-brown;
       }
     }
@@ -116,12 +111,12 @@
 
   > .group_select {
     background-color: $bgcolor;
-    padding: 0 5px;
+    padding: 0 12px;
     overflow: hidden;
 
     > #group_selector {
       cursor: pointer;
-      line-height: 25px;
+      line-height: 27px;
 
       > .icon {
         display: inline-block;
@@ -155,6 +150,7 @@
         border: solid 1px $warm-grey;
         cursor: pointer;
 
+        font-size: 11px;
         text-align: center;
         line-height: 30px;
         color: $greyish-brown;
@@ -171,26 +167,32 @@
     border-collapse: collapse;
     width: 100%;
     text-align: center;
+    font-size: 11px;
 
     th {
       margin-bottom: 3px;
       border-top: solid 1px $warm-grey;
       border-bottom: solid 1px $warm-grey;
       box-sizing: border-box;
+      font-size: 12px;
       font-weight: normal;
       text-align: center;
       line-height: 35px;
     }
 
     td {
+      min-height: 40px;
       border-bottom: 1px solid $bright-line;
     }
 
     .img {
-      width: 12%;
+      width: 40px;
+      @media #{$media-not-mobile} {
+        width: 60px;
+      }
 
       > .item_img {
-        margin: 0 auto;
+        margin: 1px auto;
         width: 35px;
         height: 35px;
         background-size: cover;
@@ -204,21 +206,21 @@
     }
 
     .group {
-      width: 18%;
+      width: 20%;
     }
 
     .name {
-      width: 31%;
       padding: 0 10px;
       text-align: left;
     }
 
     .link {
-      width: 19%;
+      width: 65px;
 
       > a {
         display: block;
-        margin: 3px;
+        margin: 0 auto;
+        width: 52px;
         height: 24px;
         border-radius: 13px;
         background-color: #d0baff;
