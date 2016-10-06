@@ -23,6 +23,7 @@
       font-size: 13px;
       font-weight: normal;
       color: $warm-grey;
+      text-decoration: underline;
 
       @media #{$media-mobile} {
         left: inherit;
@@ -78,9 +79,7 @@
         border-top: 1px solid $bright-line;
         font-size: 12px;
         font-weight: normal;
-        color: $greyish-brown;
         text-align: center;
-        text-decoration: none;
 
         > .active {
           color: $bora;
@@ -150,9 +149,7 @@
       border-radius: 2px;
       background-color: $white;
       box-sizing: border-box;
-      text-decoration: none;
       font-size: 14px;
-      color: $greyish-brown;
 
       @media #{$media-mobile} {
         margin: 0 auto 12px;

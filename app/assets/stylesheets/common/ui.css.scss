@@ -1,0 +1,36 @@
+@import "variables";
+
+.ui-pagination {
+  margin-top: 30px;
+
+  > .pagination {
+    overflow: hidden;
+
+    > span {
+      display: block;
+      float: left;
+      text-align: center;
+      width: 20px;
+      color: $greyish-brown;
+      font-size: 14px;
+      padding: 2px 0;
+      margin-right: 6px;
+      cursor: pointer;
+
+      @media #{$media-mobile} {
+        width: 17px;
+        font-size: 11px;
+      }
+
+      > a:hover {
+        display: block;
+        color: $bora;
+      }
+
+      &.current {
+        background-color: $bgcolor;
+        border-radius: 4px;
+      }
+    }
+  }
+}

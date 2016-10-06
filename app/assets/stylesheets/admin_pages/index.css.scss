@@ -26,7 +26,6 @@
     color: $white;
     font-size: 20px;
     text-align: center;
-    text-decoration: none;
 
     &:hover {
       background-color: $hover-bora;
@@ -107,7 +106,7 @@
 
     > a {
       padding: 0 10px;
-      color: $greyish-brown;
+      text-decoration: underline;
 
       &:hover {
         color: $bora;
@@ -147,9 +146,6 @@
       }
 
       > a {
-        text-decoration: none;
-        color: $greyish-brown;
-
         &.button {
           color: $warm-grey;
         }

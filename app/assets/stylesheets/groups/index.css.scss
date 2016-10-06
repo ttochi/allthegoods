@@ -20,7 +20,6 @@
       height: 40px;
       line-height: 40px;
       font-size: 16px;
-      text-decoration: none;
 
       @media #{$media-mobile} {
         height: 32px;
@@ -148,9 +147,7 @@
         margin-top: 15px;
         font-size: 18px;
         font-weight: 700;
-        text-decoration: none;
         text-align: center;
-        color: $greyish-brown;
 
         @media #{$media-mobile} {
           margin-top: 11px;

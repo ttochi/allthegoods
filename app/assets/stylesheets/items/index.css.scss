@@ -24,7 +24,6 @@
 
       font-weight: bold;
       color: $greyish-brown;
-      text-decoration: none;
       border-right: solid 1px $bright-line;
 
       &:hover {
@@ -167,7 +166,6 @@
         text-align: center;
         line-height: 30px;
         color: $greyish-brown;
-        text-decoration: none;
 
         &:hover {
           color: $hover-bora;
@@ -243,7 +241,6 @@
         font-weight: bold;
         text-align: center;
         color: $white;
-        text-decoration: none;
 
         &.twitter {
           background-color: #89ceff;

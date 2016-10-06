@@ -1,18 +1,8 @@
 //= require_self
 @import 'variables';
-
-html {
-  min-height: 100%;
-  position: relative;
-}
+@import "common/*";
 
 body {
-  font-family:  "나눔고딕", "NanumGothic", "Apple SD Gothic Neo", "맑은 고딕", "Malgun Gothic", "돋움", "Dotum", sans-serif;
-
-  background-color: $bgcolor;
-  margin: 0;
-  padding: 0;
-
   > .nav {
     position: relative;
     background-color: $bora;
@@ -37,7 +27,6 @@ body {
       color: $white;
       font-size: 15px;
       line-height: 54px;
-      text-decoration: none;
 
       &.left {
         left: 15px;
@@ -63,6 +52,7 @@ body {
     width: 100%;
     background-color: #d8d8d8;
     text-align: center;
+    color: #757575;
 
     > .footer_links {
       display: inline-block;
@@ -79,17 +69,14 @@ body {
       > .list {
         display: inline-block;
         float: left;
-        text-decoration: none;
         font-size: 9px;
         line-height: 11px;
-        color: #757575;
       }
     }
 
     > .copyright {
       margin-top: 5px;
       font-size: 9px;
-      color: #757575;
     }
   }
 }
