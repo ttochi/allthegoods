@@ -3,11 +3,8 @@ class ItemsController < ApplicationController
     before_action :set_item, only: [:show, :edit, :update, :destroy]
 
     def index
-        params[:state] ||= '1'
-        params[:week] ||= Date.today.cweek
-
-        @start_date = Date.commercial(Date.today.year, params[:week].to_i, 1)
-        @end_date = Date.commercial(Date.today.year, params[:week].to_i + 1, 1)
+        params[:state] ||= '0'
+        params[:month] ||= Date.today.beginning_of_month
 
         @groups = Group.all
 
@@ -15,13 +12,18 @@ class ItemsController < ApplicationController
 
         if params[:group].present?
             @items = @items.joins('LEFT JOIN corresponds ON corresponds.item_id = items.id')
-                          .joins('LEFT JOIN members ON corresponds.member_id = members.id')
-                          .where('members.group_id = ?', params[:group])
-                          .group('items.id')
+                           .joins('LEFT JOIN members ON corresponds.member_id = members.id')
+                           .where('members.group_id = ?', params[:group])
+                           .group('items.id')
         end
 
-        @items = @items.where('state = ?', params[:state])
-        @items = @items.where('due_date >= ? and due_date < ?', @start_date, @end_date).order(due_date: :asc)
+        if params[:state] == '0'
+            @items = @items.where('state = 0')
+        else
+            @items = @items.where('state = 1 or state = 2')
+        end
+
+        @items = @items.where('due_date >= ? and due_date < ?', params[:month].to_date, params[:month].to_date.next_month).order(due_date: :asc)
 
     end
 

@@ -7,44 +7,25 @@
   color: $greyish-brown;
   background-color: $white;
 
-  > .week_select {
+  > .mon_select {
     height: 45px;
     text-align: center;
     border-bottom: 1px solid $bright-line;
 
-    > .this_week, .week_num {
+    font-weight: bold;
+    line-height: 45px;
+
+    > .mon {
+      display: block;
       float: left;
-      line-height: 45px;
-      text-align: center;
-    }
-
-    > .this_week {
-      display: block;
-      width: 70px;
-
-      font-weight: bold;
-      color: $greyish-brown;
-      border-right: solid 1px $bright-line;
-
-      &:hover {
-        color: $hover-bora;
-      }
-    }
-
-    > .week_num {
-      margin-left: 10px;
-      color: $warm-grey;
-    }
-
-    > .week {
-      display: block;
-      float: right;
       padding: 14.5px 10px;
+      border-left: 1px solid $bright-line;
+      border-right: 1px solid $bright-line;
 
       > .text {
         float: left;
+        font-weight: normal;
         line-height: 16px;
-        color: $greyish-brown;
       }
 
       > .arrow {
@@ -61,6 +42,8 @@
       }
 
       &.next {
+        float: right;
+
         > .text {
           float: right;
         }
@@ -152,10 +135,11 @@
       > .group {
         display: block;
         float: left;
-        margin: 1.5px;
+        margin: 5px;
         padding: 0 15px;
 
-        width: 75px;
+        max-width: 113px;
+        width: 30%;
         height: 30px;
         box-sizing: border-box;
         background-color: $white;
@@ -197,54 +181,74 @@
     }
 
     .img {
-      width: 40px;
-      @media #{$media-not-mobile} {
-        width: 60px;
+      max-width: 110px;
+      width: 23%;
+
+      @media only screen and (min-width:480px) {
+        width: 110px;
       }
 
       > .item_img {
         margin: 1px auto;
-        width: 35px;
-        height: 35px;
+        width: 100%;
+        padding-bottom: 100%;
         background-size: cover;
         background-position: center;
-
-        @media #{$media-not-mobile} {
-          width: 60px;
-          height: 60px;
-        }
       }
     }
 
     .group {
-      width: 20%;
+      max-width: 110px;
+      width: 23%;
+
+      > .item_group {
+        font-size: 12px;
+        font-weight: bold;
+      }
+
+      @media only screen and (min-width:480px) {
+        width: 110px;
+      }
     }
 
     .name {
       padding: 0 10px;
       text-align: left;
+
+      > .item_name {
+        margin-top: 5px;
+        font-size: 12px;
+        font-weight: bold;
+
+        word-break: keep-all;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2; /* 라인수 */
+        -webkit-box-orient: vertical;
+        word-wrap: break-word;
+      }
     }
 
     .link {
-      width: 65px;
+      width: 19%;
+
+      @media only screen and (min-width:480px) {
+        width: 100px;
+      }
 
       > a {
         display: block;
-        margin: 0 auto;
-        width: 52px;
-        height: 24px;
-        border-radius: 13px;
-        background-color: #d0baff;
+        margin: 4px 6px;
+        height: 26px;
+        border-radius: 3px;
+        border: 1px solid $greyish;
 
         font-size: 10px;
-        line-height: 24px;
         font-weight: bold;
+        line-height: 26px;
         text-align: center;
-        color: $white;
-
-        &.twitter {
-          background-color: #89ceff;
-        }
+        color: $warm-grey;
       }
     }
   }

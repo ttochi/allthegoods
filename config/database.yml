@@ -17,7 +17,7 @@ development:
   username: root
   password: place325
   socket: /tmp/mysql.sock
-  database: allthegoods_develop
+  database: allthegoods_production
 
 production:
   adapter: mysql2

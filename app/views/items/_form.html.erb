@@ -24,12 +24,12 @@
         <%= f.text_field :form_url, pattern: 'https?://.+', placeholder: 'http(s)://~', required: true %>
     </div>
     <div class="field">
-        <%= f.label :price, '가격' %>
-        <%= f.number_field :price, min: 0, step: 100 %>
+        <%= f.label :kind, '굿즈 종류' %>
+        <%= f.text_field :kind %>
     </div>
     <div class="field">
         <%= f.label :state, '상태 *' %>
-        <%= f.select :state, options_for_select(array_to_select_options(Constants::SaleState::STR), f.object[:state]), required: true %>
+        <%= f.select :state, options_for_select(array_to_select_options(Constants::SaleState::STR), f.object[:state]), {include_blank: '상태 선택'}, required: true %>
     </div>
     <div class="field">
         <%= f.label :due_date, '마감일 *' %>
