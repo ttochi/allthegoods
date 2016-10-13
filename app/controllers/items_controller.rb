@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
 
         @groups = Group.all
 
-        @items = Item.all
+        @items = Item.all.where('due_date >= ?', Date.today)
 
         if params[:group].present?
             @items = @items.joins('LEFT JOIN corresponds ON corresponds.item_id = items.id')

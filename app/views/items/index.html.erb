@@ -18,10 +18,10 @@
 
     <div class="state_select">
         <%= link_to params.except(:state) do %>
-            <div id="survey" class="<%= 'active' if params[:state] == '0' %>">수량조사</div>
+            <div id="survey" class="<%= 'active' if params[:state] != '1' %>">수량조사</div>
         <% end %>
         <%= link_to params.merge(state: '1') do %>
-            <div id="paying" class="<%= 'active' if params[:state] != '0' %>">입금</div>
+            <div id="paying" class="<%= 'active' if params[:state] == '1' %>">입금</div>
         <% end %>
     </div>
 
@@ -59,7 +59,7 @@
         </thead>
         <tbody>
         <% @items.each do |item| %>
-        <% group = item.members.first.group %>
+            <% group = item.members.first.group %>
             <tr>
                 <td class="img">
                     <div class="item_img" style="background-image: url('<%= item.img_main %>')"></div>
@@ -72,7 +72,11 @@
                     <div class="item_name"><%= item.name %></div>
                 </td>
                 <td class="link">
-                    <%= link_to item.state == 1 ? '선입금' : '일반입금', item.form_url, target: '_blank', class: 'form' %>
+                    <% if params[:state] == '1' %>
+                        <%= link_to item.state == 1 ? '선입금' : '일반입금', item.form_url, target: '_blank', class: 'form' %>
+                    <% else %>
+                        <%= link_to '수량조사', item.form_url, target: '_blank', class: 'form' %>
+                    <% end %>
                     <%= link_to '트위터', 'https://twitter.com/' + item.seller_url, target: '_blank', class: 'twitter' %>
                 </td>
             </tr>
