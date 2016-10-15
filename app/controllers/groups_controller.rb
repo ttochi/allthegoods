@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-    before_action :authenticate_admin!
+    before_action :authenticate_admin!, except: [:index, :show]
     before_action :set_group, only: [:show, :edit, :update, :destroy]
 
     # GET /groups
