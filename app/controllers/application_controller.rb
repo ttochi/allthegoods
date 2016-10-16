@@ -8,7 +8,9 @@ class ApplicationController < ActionController::Base
     end
 
     def after_sign_in_path_for(resource)
-        if resource.class.name == 'Admin'
+        if resource.class.name == 'User'
+            session[:next_url] || root_path
+        elsif resource.class.name == 'Admin'
             admins_index_path
         end
     end

@@ -11,6 +11,7 @@ ko:
     errors:
       messages:
         record_invalid: 데이터 검증에 실패하였습니다. %{errors}
+        not_saved: 정보가 저장되지 않았습니다.
   date:
     abbr_day_names:
     - 일

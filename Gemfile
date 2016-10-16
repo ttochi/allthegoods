@@ -23,6 +23,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # User session and data
 gem 'devise'
+gem 'omniauth-twitter'
 
 # html reader parser
 gem 'nokogiri'
