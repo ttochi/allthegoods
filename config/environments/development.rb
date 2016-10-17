@@ -40,4 +40,15 @@ Rails.application.configure do
     # config.action_view.raise_on_missing_translations = true
 
     config.default_profile_image_url = '/assets/profile_img.png'
+
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+          :address              => "smtp.gmail.com",
+          :port                 => 587,
+          :domain               => "http://fanmade.kr",
+          :user_name            => "wearetheducklings@gmail.com",
+          :password             => "duckduck!!",
+          :authentication       => "plain",
+          :enable_starttls_auto => true
+    }
 end

@@ -31,9 +31,6 @@ gem 'nokogiri'
 # pagenation
 gem 'kaminari'
 
-# mail form
-gem 'mail_form'
-
 # deploy
 gem 'capistrano'
 gem 'capistrano-rvm'

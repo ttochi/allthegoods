@@ -38,7 +38,7 @@
 <div class="nav">
     <%= link_to '', root_path, class: 'logo' %>
     <% if user_signed_in? %>
-        <%= link_to '로그아웃', destroy_admin_session_path, method: :delete, class: 'admin right' %>
+        <%= link_to '로그아웃', destroy_user_session_path, method: :delete, class: 'admin right' %>
     <% elsif admin_signed_in? %>
         <%= link_to '어드민', admins_index_path, class: 'admin left' %>
         <%= link_to '로그아웃', destroy_admin_session_path, method: :delete, class: 'admin right' %>
