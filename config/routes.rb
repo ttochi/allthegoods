@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
     # users pages
     devise_for :users, :controllers => {registrations: 'registrations', omniauth_callbacks: 'omniauth_callbacks'}
+    resource :sns_registrations, only: [:new, :create]
 
     # admin pages
     devise_for :admins, skip: [:registration, :password]

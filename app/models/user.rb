@@ -9,15 +9,7 @@ class User < ActiveRecord::Base
     before_save :set_default_profile_image
 
     def self.find_for_twitter_oauth(auth)
-        user = where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-            user.email = "#{auth.uid}@twitter.com"
-            user.password = Devise.friendly_token[0,20]
-            user.nickname = auth.info.nickname
-            user.profile_image_url = auth.info.image
-            user.location = auth.info.location
-            user.lang = auth.extra.raw_info.lang
-        end
-
+        user = where(provider: auth.provider, uid: auth.uid).first
         user
     end
 

@@ -1,0 +1,33 @@
+<% content_for :js_css do %>
+    <%= stylesheet_link_tag 'component/form', media: 'all' %>
+    <%= javascript_include_tag 'component/form' %>
+<% end %>
+
+<div id="contents">
+    <div class="title">환영합니다!</div>
+    <div class="title">추가정보를 받겠습니다!</div>
+
+    <%= form_for @user, url: {action: 'create'} do |f| %>
+        <% if @user.errors.any? %>
+            <div id="error_explanation">
+                <% @user.errors.full_messages.each do |message| %>
+                    <div><%= message %></div>
+                <% end %>
+            </div>
+        <% end %>
+
+        <div class="field">
+            <%= f.label :email, '아이디' %>
+            <%= f.email_field :email, autofocus: true %>
+        </div>
+
+        <div class="field">
+            <%= f.label :nickname, '닉네임' %><br />
+            <%= f.text_field :nickname %>
+        </div>
+
+        <div class="actions">
+            <%= f.submit '가입하기' %>
+        </div>
+    <% end %>
+</div>
