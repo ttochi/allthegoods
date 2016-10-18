@@ -1,6 +1,6 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     def twitter
-        @user = User.find_for_twitter_oauth(request.env['omniauth.auth'])
+        @user = User.find_by_oauth(request.env['omniauth.auth'])
 
         if @user.nil?
             session[:sns_provider] = request.env['omniauth.auth'].provider

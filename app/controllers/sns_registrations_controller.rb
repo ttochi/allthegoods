@@ -13,7 +13,6 @@ class SnsRegistrationsController < ApplicationController
         params[:user][:profile_image_url] = session[:profile_image_url]
         params[:user][:location] = session[:location]
         params[:user][:lang] = session[:lang]
-
         params[:user][:password] = Devise.friendly_token(20)
         params[:user][:password_confirmation] = params[:user][:password]
 

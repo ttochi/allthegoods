@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
     validates :nickname, presence: true, uniqueness: true, length: {maximum: 15}
     before_save :set_default_profile_image
 
-    def self.find_for_twitter_oauth(auth)
+    def self.find_by_oauth(auth)
         user = where(provider: auth.provider, uid: auth.uid).first
         user
     end
