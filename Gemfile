@@ -31,6 +31,10 @@ gem 'nokogiri'
 # pagenation
 gem 'kaminari'
 
+# image upload
+gem 'paperclip'
+gem 'aws-sdk', '~> 2.3'
+
 # deploy
 gem 'capistrano'
 gem 'capistrano-rvm'

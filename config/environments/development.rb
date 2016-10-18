@@ -51,4 +51,14 @@ Rails.application.configure do
           :authentication       => "plain",
           :enable_starttls_auto => true
     }
+
+    config.paperclip_defaults = {
+          storage: :s3,
+          s3_credentials: {
+                bucket: 'fanmade-goods',
+                access_key_id: 'AKIAJQRIB6EOJHXUYBHA',
+                secret_access_key: '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',
+                s3_region: 'ap-northeast-2'
+          }
+    }
 end
