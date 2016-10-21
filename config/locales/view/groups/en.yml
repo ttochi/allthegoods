@@ -1,0 +1,7 @@
+en:
+  groups:
+    index:
+      select_idol: 'Select Star'
+
+    show:
+      goods_num: 'We have %{num} goods!'

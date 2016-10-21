@@ -50,7 +50,7 @@
     </div>
 </div>
 
-<div class="info"><%= @items.length %>개의 굿즈가 있어요!</div>
+<div class="info"><%= t '.goods_num', num: @items.length %></div>
 
 <div class="items">
     <% @items.each do |item| %>

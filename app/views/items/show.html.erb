@@ -12,7 +12,7 @@
         <% end %>
 
         <div class="name"><%= @item.name %></div>
-        <div class="artist">@<%= @item.artist_url.blank? ? @item.seller_url : @item.artist_url %><%= t 'goods.made_by' %></div>
+        <div class="artist">@<%= @item.artist_url.blank? ? @item.seller_url : @item.artist_url %><%= t '.made_by' %></div>
 
         <% deadline = ((@item.due_date.to_time - Time.now)/1.day).ceil %>
         <div class="state <%= 'finish' if deadline < 0 %>"><%= deadline >= 0 ? '선입금' : '판매완료' %></div>
@@ -23,7 +23,7 @@
         <% end %>
 
         <div class="price"><%= number_to_currency(@item.price) %></div>
-        <%= link_to '주문하기', @item.form_url, class: 'form_url' %>
+        <%= link_to t('.go_to_buy'), @item.form_url, class: 'form_url' %>
     </div>
 
     <div id="seller_info">

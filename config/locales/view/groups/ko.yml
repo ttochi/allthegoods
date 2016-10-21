@@ -1,0 +1,7 @@
+ko:
+  groups:
+    index:
+      select_idol: '아이돌 선택'
+
+    show:
+      goods_num: '%{num}개의 굿즈가 있어요!'

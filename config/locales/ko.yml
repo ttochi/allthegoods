@@ -1,7 +1,4 @@
 ko:
-  goods:
-    made_by: '님의 굿즈'
-
   views:
     pagination:
       first: '&laquo;'
