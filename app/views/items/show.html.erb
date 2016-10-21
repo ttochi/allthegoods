@@ -12,7 +12,7 @@
         <% end %>
 
         <div class="name"><%= @item.name %></div>
-        <div class="artist">@<%= @item.artist_url.blank? ? @item.seller_url : @item.artist_url %>님의 굿즈</div>
+        <div class="artist">@<%= @item.artist_url.blank? ? @item.seller_url : @item.artist_url %><%= t 'goods.made_by' %></div>
 
         <% deadline = ((@item.due_date.to_time - Time.now)/1.day).ceil %>
         <div class="state <%= 'finish' if deadline < 0 %>"><%= deadline >= 0 ? '선입금' : '판매완료' %></div>

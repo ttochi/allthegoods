@@ -78,4 +78,6 @@ Rails.application.configure do
     config.active_record.dump_schema_after_migration = false
 
     config.default_profile_image_url = '/assets/profile_img.png'
+
+    # TODO Mailer 설정 & S3 설정
 end
