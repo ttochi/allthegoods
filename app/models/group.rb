@@ -4,6 +4,6 @@ class Group < ActiveRecord::Base
 
     validates :name, presence: true
 
-    has_attached_file :image, styles: { small: '64x64', med: '150x150' }
+    has_attached_file :image
     validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 end
